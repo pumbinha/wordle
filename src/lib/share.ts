@@ -1,17 +1,13 @@
 import { getGuessStatuses } from './statuses'
 import { solutionIndex } from './words'
 
-export const shareStatus = (guesses: string[]) => {
+export const shareStatus = (guesses: string[], lost: boolean) => {
   navigator.clipboard.writeText(
-    "Wordle (ES) " +
-      solutionIndex +
-      " " +
-      guesses.length +
-      "/6\n\n" +
+    `Wordle (ES) ${solutionIndex} ${lost ? 'X' : guesses.length}/6\n\n` +
       generateEmojiGrid(guesses) +
-      "\n\nMás palabras en: https://wordle.pumba.cloud\n"
-  );
-};
+      '\n\nMás palabras en: https://wordle.pumba.cloud\n'
+  )
+}
 
 export const generateEmojiGrid = (guesses: string[]) => {
   return guesses

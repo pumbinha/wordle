@@ -12,14 +12,15 @@ export const getWordOfDay = () => {
   // January 1, 2022 Game Epoch
   const epochMs = 1641013200000
   const now = Date.now()
-  //orig: 86400000
   const msInDay = 3600000
   const index = Math.floor((now - epochMs) / msInDay)
+  const nextday = (index + 1) * msInDay + epochMs
 
   return {
     solution: WORDS[index].toUpperCase(),
     solutionIndex: index,
+    tomorrow: nextday,
   }
 }
 
-export const { solution, solutionIndex } = getWordOfDay()
+export const { solution, solutionIndex, tomorrow } = getWordOfDay()
