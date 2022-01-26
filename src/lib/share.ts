@@ -3,10 +3,15 @@ import { solutionIndex } from './words'
 
 export const shareStatus = (guesses: string[]) => {
   navigator.clipboard.writeText(
-    `Not Wordle ${solutionIndex} ${guesses.length}/6\n\n` +
-    generateEmojiGrid(guesses)
-  )
-}
+    "Wordle (ES) " +
+      solutionIndex +
+      " " +
+      guesses.length +
+      "/6\n\n" +
+      generateEmojiGrid(guesses) +
+      "\n\nMás palabras en: https://wordle.pumba.cloud\n"
+  );
+};
 
 export const generateEmojiGrid = (guesses: string[]) => {
   return guesses
